@@ -392,7 +392,11 @@ el('btn-confirm-date').addEventListener('click', () => {
   const confirmEl = el('date-confirm');
 
   if (value === CONFIG.defaultDate) {
-    // ¡Acertó! Ocultamos el selector y mostramos la imagen sorpresa.
+    // ¡Acertó! Vibración cortita en celulares que lo soporten.
+    if (navigator.vibrate) {
+      navigator.vibrate([40, 60, 40]);
+    }
+    // Ocultamos el selector y mostramos la imagen sorpresa.
     confirmEl.hidden = true;
     revealFinalImage();
   } else {
