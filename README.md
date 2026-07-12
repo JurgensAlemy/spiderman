@@ -1,4 +1,4 @@
-# Misión Spider-Man 🕸️ — Quiz para invitar a tu enamorada
+# Misión Spider-Man 🕸️ — Quiz para invitar a mi enamorada
 
 Una mini web de una sola sesión: 10 preguntas sobre Spider-Man con fotos de
 recuerdo, y al acertarlas todas se desbloquea una invitación (con fecha
