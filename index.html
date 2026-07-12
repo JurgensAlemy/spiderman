@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Spiderman pechocha :D</title>
+
+  <!-- Favicon (ícono de la pestaña del navegador) -->
+  <link rel="icon" type="image/png" href="imgs/favicon.png">
+  <link rel="apple-touch-icon" href="imgs/favicon.png">
+
+  <!--
+    ================================================================
+    VISTA PREVIA AL COMPARTIR EL LINK (WhatsApp, Telegram, etc.)
+    ================================================================
+    Para que WhatsApp muestre la imagen, necesitas subir el proyecto
+    a algún hosting (GitHub Pages, Netlify, Vercel...) y reemplazar
+    el "content" de "og:image" y "og:url" abajo por la URL COMPLETA
+    (https://...) de tu imagen y de tu página ya publicadas.
+    Mientras el proyecto esté solo en tu computadora (sin subir a
+    internet), WhatsApp no podrá leer la imagen porque no es
+    accesible públicamente.
+    ================================================================
+  -->
+  <meta property="og:title" content="Mi vidaaaaaaa arañita 🕷️">
+  <meta property="og:description" content="Una misión especial para ti mi reina hermosa :D">
+  <meta property="og:image" content="https://TU-DOMINIO-AQUI.com/imgs/Portadafinal.png">
+  <meta property="og:url" content="https://TU-DOMINIO-AQUI.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Web silhouette / ambient background, always present -->
+  <div class="web-bg" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100" y2="100" />
+      <line x1="100" y1="0" x2="0" y2="100" />
+      <line x1="50" y1="0" x2="50" y2="100" />
+      <line x1="0" y1="50" x2="100" y2="50" />
+      <circle cx="50" cy="50" r="10" />
+      <circle cx="50" cy="50" r="25" />
+      <circle cx="50" cy="50" r="40" />
+      <circle cx="50" cy="50" r="55" />
+      <circle cx="50" cy="50" r="70" />
+    </svg>
+  </div>
+  <div class="light-rays" aria-hidden="true"></div>
+
+  <main id="app">
+
+    <!-- ============ PANTALLA 1: BIENVENIDA ============ -->
+    <section class="screen active" id="screen-welcome" data-screen>
+
+      <!-- Araña colgando de un hilo, balanceándose -->
+      <div class="hanging-spider" aria-hidden="true">
+        <span class="thread"></span>
+        <svg class="spider-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="14" r="4" fill="currentColor" />
+          <circle cx="12" cy="8" r="2.6" fill="currentColor" />
+          <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <path d="M8 11 L2 8 M8 13 L1 13 M8 16 L2 19 M16 11 L22 8 M16 13 L23 13 M16 16 L22 19" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="card entrance">
+        <span class="eyebrow">Alerta arácnida</span>
+        <h1 class="hero-title">Mi vidaaaaaaa arañita 🕷️ :D</h1>
+        <p class="lede">Moshito moshito moshito, quice acerte esto pechocha mia
+          lo mejor para ti mi reina hermosa, a si, te amoooooo
+          muchiiiiiiiiiiiiiiiiiiiisiiiiiimoooooooooooooooooo❤️🕷️🕷️🕸️🕸️
+        </p>
+        <p class="sub">Te explico mi reina, tendrás que hacer alguito, no creo que sea complicado,
+          tu puedes mi reina hermosa, eres inteligentisima bonita :D
+        </p>
+        <button class="btn btn-primary" id="btn-start-1">Activar sentido arácnido (Presione Bonita)</button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 2: MENSAJE ============ -->
+    <section class="screen" id="screen-message" data-screen>
+      <div class="card entrance">
+        <span class="eyebrow">Misión especial</span>
+        <h2 class="section-title">Antes de empezar mi vida</h2>
+        <p class="lede" id="intro-message">
+          Vamos a repasar alguito my love, son <strong>10 preguntas</strong>,
+          cada una con una foto de recuerdo (sin spoilers, claro).
+          Si fallas alguna, no pasa nada, podrás intentarla de nuevo al final,
+          solo esa, si aciertas todas veras lo que pasara al final. 🕸️
+        </p>
+        <button class="btn btn-primary" id="btn-start-quiz">Empezar misión</button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 3: PREGUNTA (plantilla reutilizable) ============ -->
+    <section class="screen" id="screen-question" data-screen>
+      <div class="card question-card entrance">
+        <div class="question-meta">
+          <span class="q-counter" id="q-counter">Pregunta 1 / 10</span>
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+            <svg class="progress-spider" id="progress-spider" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="14" r="4" fill="currentColor" />
+              <circle cx="12" cy="8" r="2.6" fill="currentColor" />
+              <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <path d="M8 11 L2 8 M8 13 L1 13 M8 16 L2 19 M16 11 L22 8 M16 13 L23 13 M16 16 L22 19" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <span class="streak-badge" id="streak-badge" hidden>
+          🔥 ¡llevas <span id="streak-count">0</span> seguidas!
+        </span>
+
+        <div class="q-photo-wrap">
+          <img id="q-photo" src="" alt="Recuerdo" class="q-photo">
+          <div class="photo-frame"></div>
+        </div>
+
+        <h3 class="q-text" id="q-text">¿Pregunta?</h3>
+
+        <div class="options" id="options-wrap"></div>
+
+        <div class="feedback" id="feedback" hidden>
+          <p class="feedback-text" id="feedback-text"></p>
+          <button class="btn btn-secondary" id="btn-next">Siguiente</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 4: RESULTADOS ============ -->
+    <section class="screen" id="screen-results" data-screen>
+      <div class="card entrance">
+
+        <!-- Confetti / telarañitas cayendo si acierta todo -->
+        <div class="confetti-wrap" id="confetti-wrap" hidden aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+
+        <span class="eyebrow">Resultado de la misión</span>
+        <h2 class="section-title">¿Cómo te fue?</h2>
+
+        <div class="score-row">
+          <div class="score-pill score-good">
+            <span class="score-num" id="score-correct">0</span>
+            <span class="score-label">acertadas</span>
+          </div>
+          <div class="score-pill score-bad">
+            <span class="score-num" id="score-wrong">0</span>
+            <span class="score-label">falladas</span>
+          </div>
+        </div>
+
+        <p class="lede" id="results-message"></p>
+
+        <button class="btn btn-primary" id="btn-retry-wrong">Volver a intentar las falladas</button>
+        <button class="btn btn-glow" id="btn-final" hidden>Ver la sorpresa</button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 5: FINAL / SORPRESA ============ -->
+    <section class="screen" id="screen-final" data-screen>
+      <div class="card final-card entrance">
+        <div class="web-burst" aria-hidden="true"></div>
+        <span class="eyebrow">¡Misión cumplida!</span>
+        <h2 class="hero-title small">PUDISTEEEEE, MOSHITOOOOO 🕷️</h2>
+        <p class="lede">
+          Acertaste todo, bueno ya lo sabia, tu puedes con todo mi reina hermosa
+        </p>
+        <h3 class="ask-title">¿Cuándo iremos a ver la peli nueva mi vida?</h3>
+
+        <!--
+        ================================================================
+        LA FECHA CORRECTA (la que ella debe adivinar) se define en
+        script.js en la constante CONFIG.defaultDate.
+        Formato: "AAAA-MM-DD"  →  ejemplo: "2026-07-29"
+        Si el valor que ella elige en el calendario no coincide,
+        puede seguir intentando: no se reinicia el resto del quiz,
+        solo esta parte de la fecha.
+        Cuando acierta, se rasga la telaraña, se oculta el selector
+        y aparece la imagen imgs/Portadafinal.png con una transición,
+        chispas doradas y el texto "Pues iremos hermosa" superpuesto.
+        ================================================================
+      -->
+        <div class="date-picker-wrap" id="date-picker-wrap">
+          <input type="date" id="date-picker" class="date-input">
+          <button class="btn btn-primary" id="btn-confirm-date">Confirmar fecha</button>
+        </div>
+
+        <p class="date-confirm" id="date-confirm" hidden></p>
+
+        <!-- Efecto de telaraña rasgándose antes de revelar la imagen -->
+        <div class="web-tear" id="web-tear" hidden aria-hidden="true">
+          <div class="tear-half tear-left"></div>
+          <div class="tear-half tear-right"></div>
+        </div>
+
+        <div class="reveal-wrap" id="reveal-wrap" hidden>
+          <img src="imgs/Portadafinal.png" alt="Iremos juntos a ver la película" class="reveal-img" id="reveal-img">
+          <div class="reveal-overlay">
+            <span class="reveal-text">Pues iremos hermosa</span>
+          </div>
+          <div class="reveal-sparkles" id="reveal-sparkles" hidden aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
